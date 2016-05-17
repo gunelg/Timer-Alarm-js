@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+
+<script>
+var myTimer=[0,0,60];
+function Timer(){
+	document.write("<div>");
+	document.write(myTimer[0]+" : "+myTimer[1]+" : "+ myTimer[2]+"<br>");
+	document.write("</div>");
+	if (myTimer[2]==0) {
+		if (myTimer[1]==0) {
+			if (myTimer[0]==0) {
+				alert("Stop!");
+				clearInterval(StopTime);
+			}
+			myTimer[0]--;
+			myTimer[1]=60;
+		}
+		myTimer[1]--;
+		myTimer[2]=60;
+	}
+	myTimer[2]--;
+}
+var StopTime=setInterval(function(){Timer()},1000);
+
+var m = prompt('Please, Insert Minutes');
+
+	
+function myAlarm(){
+
+	var time = new Date();
+
+	var str = time.toLocaleTimeString();
+	document.open();
+	document.write(str);
+	document.close();
+	if (str=='22:'+m+':00'){
+		alert("WAKE UP!");
+	}
+}
+
+		setInterval(myAlarm,1000);
+
+
+</script>
+
+</body>
+</html>
